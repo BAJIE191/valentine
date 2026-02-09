@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 500px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .heart {
+      font-size: 3rem;
+      animation: pulse 1.5s infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .from {
+      margin-top: 25px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    button {
+      background: #fff;
+      color: #ff4d6d;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+      .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart-float {
+      position: absolute;
+      bottom: -50px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+      .photo-frame {
+      padding: 8px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,182,193,0.8));
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      margin-bottom: 22px;
+    }
+    .couple-photo {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      filter: brightness(1.05) contrast(1.05) saturate(1.1);
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b7d8e3a47.mp3" type="audio/mpeg">
+  </audio>
+  <div class="hearts" id="hearts"></div>
+  <div class="card">
+    <div class="photo-frame">
+      <img src="image.jpg" alt="Us together" class="couple-photo" />
+    </div>
+    <div class="heart">❤️</div>
+    <h1>LUCY NJERI MAINA</h1>
+    <h2>Will you be my Valentine?</h2>
+    <p>
+      From the moment you came into my life, you made everything brighter.
+      Your smile, your heart, and your love mean more to me than words can say.
+      This Valentine’s Day, I don’t want to imagine it without you.
+    </p>
+    <button onclick="alert('I really hope you say YES 💕')">Click me</button>
+    <div class="from">
+      With all my love,<br />
+      <strong>BAJIE</strong>
+    </div>
+  </div>
+  <script>
+    const heartsContainer = document.getElementById('hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart-float');
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 4 + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
